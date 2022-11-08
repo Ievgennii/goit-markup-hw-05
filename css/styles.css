@@ -350,7 +350,7 @@ bottom: 0;
   position: relative;
 }
 
-.work-list::before {
+/* .work-list::before {
   display: inline-block;
   position: absolute;
   opacity: 1;
@@ -359,7 +359,7 @@ bottom: 0;
   height: 70px;
   background-color: rgba(47, 48, 58, 0.8);
   bottom: 0;
-}
+} */
 
 .work-paragraph {
   position: absolute;
@@ -367,7 +367,11 @@ bottom: 0;
   left: 50%;
   transform: translate(-50%);
 
-  margin: 27px 0;
+  /* margin: 27px 0; */
+  background-color: rgba(47, 48, 58, 0.8);
+  width: 100%;
+  text-align: center;
+  padding: 27px;
 
   font-weight: 700;
   font-size: 14px;
@@ -616,6 +620,36 @@ bottom: 0;
   color: var(--primary-white-color);
 }
 
+/* Модальне вікно */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+
+  width: 33%;
+  height: 57%;
+
+  background: #FFFFFF;
+box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+border-radius: 4px;
+
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
 /* Portfolio-choice */
 
 .portfolio-choice {
@@ -655,7 +689,7 @@ bottom: 0;
   flex-wrap: wrap;
 }
 
-.portfolio-list p {
+.border p {
   font-size: 16px;
   line-height: 1.88;
   /* margin-left: 24px;
@@ -724,9 +758,11 @@ bottom: 0;
 .portfolio-hover {
   position: absolute;
 
-  top: 63px;
+  top: 50%;
   left: 24px;
   right: 24px;
+
+  transform: translate(0%, -50%);
 
   font-weight: 400;
   font-size: 18px;
