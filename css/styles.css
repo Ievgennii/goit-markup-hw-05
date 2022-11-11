@@ -253,7 +253,6 @@ img {
 
   padding: 6px 22px;
 
-  /* text-align: center; */
 }
 
 .button.primary {
@@ -267,7 +266,7 @@ img {
 
 .button.primary:hover,
 .button.primary:focus {
-  /* color: var(--title-color); */
+  
   background-color: rgb(33, 70, 243);
 }
 
@@ -359,16 +358,7 @@ img {
   position: relative;
 }
 
-/* .work-list::before {
-  display: inline-block;
-  position: absolute;
-  opacity: 1;
-  content: "";
-  width: 100%;
-  height: 70px;
-  background-color: rgba(47, 48, 58, 0.8);
-  bottom: 0;
-} */
+
 
 .work-paragraph {
   position: absolute;
@@ -388,7 +378,7 @@ img {
 
   text-transform: uppercase;
 
-  color: rgb(255, 255, 255);
+  color: var(--primary-white-color);
 }
 
 /* Our team */
@@ -476,9 +466,7 @@ img {
   fill: currentColor;
 }
 
-/* .social-link:hover .socials-icon,
-.social-link:focus .socials-icon {
-  fill: #FFFFFF; */
+
 
 /* Постійні клієнти  */
 
@@ -644,21 +632,32 @@ img {
   position: fixed;
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100%;
+  
   background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+
+  transition: opacity var(--transition), visibility var(--transition);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
+}
+
+.backdrop.is-hidden .modal {
+  opacity: 0;
+  transform: translate(-50%, 70%);
 }
 
 .modal {
   width: 33%;
   height: 57%;
 
-  background: #ffffff;
+  background: var(--primary-white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -667,6 +666,28 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.modal-btn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top:8px;
+  right: 8px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  padding: 0;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+
+  background-color: #ffffff;
 }
 
 /* Portfolio-choice */
@@ -678,11 +699,14 @@ img {
 .portfolio-choice.list {
   display: flex;
   justify-content: center;
+  gap: 8px;
 }
 
-.portfolio-choice .item:not(:last-child) {
+/* .portfolio-choice .item:not(:last-child) {
   margin-right: 8px;
-}
+} */
+
+
 
 .portfolio-choice .choise {
   color: var(--title-color);
@@ -711,14 +735,10 @@ img {
 .border p {
   font-size: 16px;
   line-height: 1.88;
-  /* margin-left: 24px;
-  margin-right: 24px; */
+  
 }
 
-.portfolio-list h3 {
-  /* margin-left: 24px;
-  margin-right: 24px; */
-}
+
 /* Portfolio card */
 
 .portfolio-list li {
@@ -748,6 +768,11 @@ img {
   margin-bottom: 0;
 }
 
+.portfolio-list .item {
+  transition: box-shadow var(--transition);
+
+}
+
 .portfolio-list .item:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -755,51 +780,40 @@ img {
 
 .portfolio-box {
   position: relative;
-}
-
-.portfolio-box::before {
-  display: inline-block;
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-
+  overflow: hidden;
   
-
-  background-color: rgba(33, 150, 243, 0.9);
-
-  opacity: 0;
 }
-
-/* .portfolio-box:hover::before,
-.portfolio-hover:hover {
-  opacity: 1;
-} */
 
 .portfolio-hover {
   position: absolute;
   display: inline-block;
   padding: 0 24px;
 
-  top: 50%;
-
-  transform: translateY(-50%);
+  width: 100%;
+  height: 100%;
+  
+  background-color: rgba(33, 150, 243, 0.9);
 
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.56;
-  /* or 156% */
+  line-height: 1.56;  
 
   letter-spacing: 0.03em;
 
-  color: #ffffff;
+  color: var(--primary-white-color);  
 
-  opacity: 0;
-
-  /* transform: translate(-50%, -50%); */
+  transition: top var(--transition), transform var(--transition);
 }
 
-.portfolio-list .item:hover .portfolio-hover,
-.portfolio-list .item:hover .portfolio-box::before {
-  opacity: 1;
+.hover-text {
+  display: inline-block;
+  
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.portfolio-list .item:hover .portfolio-hover { 
+  top: 50%;
+  transform: translateY(-50%);
 }
